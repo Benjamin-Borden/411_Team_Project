@@ -1,16 +1,26 @@
-Our development IDE is Webstorm due to our wise professor's recommendation and the quality of code the application autogenerates 
+Our development IDE is Webstorm due to recommendation and the quality of code the application autogenerates 
 for node.js web applications and we used postman to generate the initial code for the API call. The language stack that we're 
-using for our prototype implements the pug templating engine on the front end along with javascript and css. We're using 
-javascript and css due to them being the default languages of front end development and we're using pug because that is Webstorm's 
-default choice and the simplicity of the engine. We're using Ajax to asynchronusly pull data from the backend using user input so
-that we do not need to reload the page to display the information the user asked for. We're also currently using Node.js to build 
-the backend and communicate with our APIs to create better consistancy between the front and backend. We're pulling the information
-from our API in JSON format and we're also currently storing our API keys in a JSON file so that we can more easily parse the 
-information due to it being in javascript object notation and being more compatible with javascript code. Our code is stored on 
-github due to course requirements and our team's main method of communication is facebook messanger because that is what we can
-count on people to check.
+using for our prototype implements ejs on the front end along with javascript. We're using using ejs becuase it can directly render 
+pages dynamically using express. It provides more flexibilty than that of other front end engines when working with ejs and express.
 
-Our team had an intention on using Java for the backend due to multiple members having more experience with the language, however
-since Node.js allowed us to fulfil the needs of the prototype more quickly and effiently we went with that language for the time
-being. Reccomendations from our professor and classmates about which tools were simple and aloud for rapid progress played a large
-part in our choice of technology stack.
+We're using Ajax to asynchronusly pull data from the backend using user input so that we do not need to reload the page to display 
+the information the user asked for. We're also currently using Node.js to build the backend and communicate with our APIs to create
+better consistancy between the front and backend. We're pulling the information from our API in JSON format and we're also 
+currently storing our API keys in a JSON file so that we can more easily parse the information due to it being in javascript object
+notation and being more compatible with javascript code. Additionally, we are using mongoDB Atlas to host our database. MongoDB 
+Atlas provided us with a free, easy access, fully automated cloud service, in other words our application doesn't need to create 
+and maintain a local instance of mongoDB. Our database consists of two collections, one of which is user and the other is history. 
+In user we are storing username, googleID, and lastly thumbnail all of which are obtained from a google oauth implemtation. Our 
+history table includes userId, queryDate, city, and output. The two tables are linked by thier common field, userId. Querydate is 
+obatined from the express date function and city is from the user input. Output comes from the Zillow API. Furthermore, we utilized
+a mongoose engine to simplify the communication between node.js backend server and mongoDB. It also provides a robust 
+functionality, for example it takes care of initalizing and connecting to the database from the backend. We used mongoose embedded 
+data query so the error handling was taken care of. The application authentication is implemented using Oauth through Google. It 
+acts as an intermediary on behalf of the user. Oauth implemtation allows users to refrain from creating a sperate login for our 
+application. This also allows our application to not create a seperate authentication module. From Google's access toekn the 
+database can track which users have accessed our applicatoin server. Our applicaton automatically stores user's query history in 
+turn the application comes with a feature to delete thier history.
+
+Our code is stored on github due to course requirements and our team's main method of communication is facebook messanger because 
+that is what we can count on people to check.
+
